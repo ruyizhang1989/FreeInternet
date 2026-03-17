@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}{{ task.title }}{% endblock %}
+
+{% block content %}
+<h2>{{ task.title }}</h2>
+<p>{{ task.description }}</p>
+<p>发布者: {{ task.poster_name }}</p>
+
+<h3>留言</h3>
+<div class="messages">
+    {% for message in messages %}
+    <div class="message">
+        <strong>{{ message.sender_name }}:</strong> {{ message.content }}
+        <small>{{ message.created_at }}</small>
+    </div>
+    {% endfor %}
+</div>
+
+<h3>发送留言</h3>
+<form method="post">
+    <label for="sender_name">您的姓名:</label>
+    <input type="text" id="sender_name" name="sender_name" required><br>
+    <label for="content">留言内容:</label>
+    <textarea id="content" name="content" required></textarea><br>
+    <button type="submit">发送</button>
+</form>
+{% endblock %}

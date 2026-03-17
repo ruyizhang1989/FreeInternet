@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}发布任务{% endblock %}
+
+{% block content %}
+<h2>发布任务</h2>
+<form method="post">
+    <label for="title">任务标题:</label>
+    <input type="text" id="title" name="title" required><br>
+    <label for="description">任务描述:</label>
+    <textarea id="description" name="description" required></textarea><br>
+    <label for="poster_name">您的姓名:</label>
+    <input type="text" id="poster_name" name="poster_name" required><br>
+    <button type="submit">发布</button>
+</form>
+{% endblock %}
